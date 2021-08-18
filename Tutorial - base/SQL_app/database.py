@@ -2,7 +2,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHEMY_DATABASE_URL = "jdbc:sqlite:C:\Users\NADI\Desktop\SQLite\test.ini"
+SQLALCHEMY_DATABASE_URL = "sqlite://D:/project/fastapi_test/Tutorial - base/SQL_app/test.db"
 # SQLALCHEMY_DATABASE_URL = "postgresql://user:password@postgresserver/db"
 
 engine = create_engine(
