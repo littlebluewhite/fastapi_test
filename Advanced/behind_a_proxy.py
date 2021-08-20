@@ -1,0 +1,17 @@
+import uvicorn
+from fastapi import FastAPI, Request
+
+app = FastAPI(
+    # servers=[
+    #     {"url": "https://stag.example.com", "description": "Staging environment"},
+    #     {"url": "https://prod.example.com", "description": "Production environment"},
+    # ],
+    root_path="/api/v1")
+
+
+@app.get("/app")
+def read_main(request: Request):
+    return {"message": "Hello World", "root_path": request.scope.get("root_path")}
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
