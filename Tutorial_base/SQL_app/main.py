@@ -4,8 +4,10 @@ import uvicorn
 from fastapi import Depends, FastAPI, HTTPException, Request, Response
 from sqlalchemy.orm import Session
 
-from Tutorial_base.SQL_app import crud, models, schemas
-from Tutorial_base.SQL_app.database import SessionLocal, engine
+import schemas
+import crud
+from Tutorial_base.SQL_app import models
+from database import SessionLocal, engine
 
 models.Base.metadata.create_all(bind=engine)
 
@@ -30,7 +32,6 @@ async def db_session_middleware(request: Request, call_next):
 #         yield db
 #     finally:
 #         db.close()
-
 
 def get_db(request: Request):
     return request.state.db
