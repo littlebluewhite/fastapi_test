@@ -1,5 +1,6 @@
 from typing import Optional, List
 
+import uvicorn
 from fastapi import FastAPI, Query
 
 app = FastAPI()
@@ -60,4 +61,7 @@ async def read_items(
     results = {"items": [{"item_id": "Foo"}, {"item_id": "Bar"}]}
     if q:
         results.update({"q": q})
-    return results
+    return
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=8000)
